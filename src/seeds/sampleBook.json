@@ -1,4 +1,24 @@
 {
-  "title": "Sample Book",
-  "text": "I sure hope this works"
+  "books": [{
+    "title": "Cat in the Hat",
+    "text": "The sun did not shine. It was too wet to play. So we sat in the house all that cold, cold, wet day."
+  }, {
+    "title": "Go Dog Go",
+    "text": "Two dogs at play, at play up on top. Go, dogs. Go! Do not play up there. Go down."
+  }, {
+    "title": "War and Peace",
+    "text": "Prussia has always declared that Buonaparte is invincible and that all Europe is powerless before him. . . . And I don't believe a word that Hardenburg says, or Haugwitz either."
+  }, {
+    "title": "The Bible",
+    "text": "And Jesus said unto thee, be holy!.. or something"
+  }, {
+    "title": "CLRS",
+    "text": "Dijkstra's algorithm therefore we can see runs in Θ(|V|log|E|) time"
+  }, {
+    "title": "The Constitution",
+    "text": "We the people in order to preserve a more perfect union, establish justice and ensure domestic tranquility"
+  }, {
+    "title": "Harry Potter",
+    "text": "Harry Potter gave Dobby a sock! Dobby is a free elf!"
+  }]
 }

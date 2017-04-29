@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ProfileView from './ProfileView.jsx';
 import LoginButton from './LoginButton.jsx';
 import logo from '../logo.svg';
 import '../styles/Dokusha.css';
@@ -21,6 +22,10 @@ export default class Dokusha extends React.Component {
 
   onLogin() {
     this.props.store.dispatch(actions.onLogin());
+    if (this.state.loginSucceeded) {
+      this.props.store.dispatch(actions.getProfileInfo(this.props.store.username));
+      this.props.store.dispatch(actions.requestBooks());
+    }
   }
 
   render() {
@@ -33,11 +38,15 @@ export default class Dokusha extends React.Component {
     };
 
     if (this.state.loginSucceeded) {
+      this.props.store.books = this.state.books;
+      this.props.store.profile = this.state.profile;
       return (
         <div className="Dokusha">
           <div className="Dokusha-header">
             <img src={logo} className="Dokusha-logo" alt="logo" />
             <h2>Hello user: {this.props.store.username}!</h2>
+            <br /><br />
+            <ProfileView store={this.props.store} />
           </div>
       </div>);
     } else {

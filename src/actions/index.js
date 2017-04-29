@@ -17,12 +17,43 @@ const onLogin = (username, password) => {
 };
 
 // pass in the book object they clicked on as a JSON?
-const favorite = (book) => {
-
+const favorite = (title, profile) => {
   return {
     type: 'FAVORITE',
-    book: book
+    title: title,
+    profile: profile
   };
 };
 
-export { onLogin, favorite }
+const isRead = (title, profile) => {
+  return {
+    type: 'IS_READ',
+    title: title,
+    profile: profile
+  };
+};
+
+const clickBook = (title, text) => {
+  return {
+    type: 'CLICK_BOOK',
+    title: title,
+    text: text
+  };
+};
+
+const getProfileInfo = (user) => {
+  console.log("Profile Info action");
+  return {
+    type: 'PROFILE_INFO',
+    user: user
+  }
+}
+
+const requestBooks = () => {
+  console.log("Books action");
+  return {
+    type: 'REQUEST_BOOKS'
+  }
+}
+
+export { onLogin, favorite, getProfileInfo, requestBooks, isRead, clickBook }
