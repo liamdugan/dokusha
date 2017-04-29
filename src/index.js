@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Dokusha from './Dokusha.js';
+import { createStore } from 'redux';
+import { mainReducer as reducers } from './reducers';
+import * as initialState from './initialState';
+import * as actions from './actions/index';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <Dokusha />,
   document.getElementById('root')
 );
