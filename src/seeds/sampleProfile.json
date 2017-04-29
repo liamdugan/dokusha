@@ -1,6 +1,6 @@
 {
   "name": "action.user",
-  "vocab": ["Look", "Ma", "No", "Hands"],
-  "favs": ["Cat in the Hat"],
-  "read": ["Go Dog Go", "Cat in the Hat", "CLRS", "Harry Potter", "The Constitution"]
+  "vocab": ["Look", "Ma", "No", "Hands", "Harry", "Potter", "gave", "we", "can", "see"],
+  "favs": [],
+  "read": []
 }

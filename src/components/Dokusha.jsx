@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProfileView from './ProfileView.jsx';
 import LoginButton from './LoginButton.jsx';
-import logo from '../logo.svg';
+import logo from '../logo.png';
 import '../styles/Dokusha.css';
 import * as initialState from '../initialState.js';
 import * as actions from '../actions/index.js';
@@ -44,9 +44,9 @@ export default class Dokusha extends React.Component {
         <div className="Dokusha">
           <div className="Dokusha-header">
             <img src={logo} className="Dokusha-logo" alt="logo" />
-            <h2>Hello user: {this.props.store.username}!</h2>
+            <h2>Hello {this.props.store.username}!</h2>
             <br /><br />
-            <ProfileView store={this.props.store} />
+            <ProfileView store={this.props.store} isReading={this.state.isReading} title={this.state.title} />
           </div>
       </div>);
     } else {
@@ -57,7 +57,7 @@ export default class Dokusha extends React.Component {
             <h2>Welcome to Dokusha</h2>
           </div>
           {ifFail()}
-          <LoginButton store={this.props.store}/>
+          <LoginButton store={this.props.store} />
           <br />
         </div>
       );

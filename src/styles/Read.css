@@ -1,0 +1,29 @@
+.read-view {
+  padding: 10px;
+  height: 1500px;
+  font-size: large;
+  color: black;
+  background-color: gray;
+}
+
+.hdr-text {
+
+}
+
+.book-text {
+  padding: 10px;
+  height: 250px;
+  border-style: solid;
+}
+
+.spacer {
+  padding: 10px;
+}
+
+.text {
+
+}
+
+.read-end {
+
+}

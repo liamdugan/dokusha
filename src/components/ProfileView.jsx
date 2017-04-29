@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BookList from './BookList.jsx';
+import ReadView from './ReadView.jsx';
 import '../styles/Profile.css';
 import * as actions from '../actions/index.js';
 
@@ -30,23 +31,42 @@ export default class ProfileView extends React.Component {
     // TODO: get user vocab/readbooks & put into store
 
     // create first and second Booklist
-    return (
-      <div className='profile'>
-        <p className='hdr-text'>Recommended Reading Material</p><br />
-        <BookList type='rec' store={this.props.store} /><br />
-        <p className='hdr-text'>Your Favorites</p><br />
-        <BookList type='fav' store={this.props.store} /><br />
-        <p className='hdr-text'>Books You've read</p><br />
-        <BookList type='read' store={this.props.store} />
-        <br /><br />
-        <span id='refresh-button' onClick={this.getProfileInfo}>Load Profile</span>
-        <span id='spacer'></span>
-        <span id='refresh-button' onClick={this.requestBooks}>Load Books</span>
-      </div>
-    )
+    if (this.props.isReading) {
+      const books = this.props.store.books.books;
+      var text = "";
+      for (var i = 0; i < books.length; i++) {
+        if (books[i].title === this.props.title) {
+          text = books[i].text;
+        }
+      }
+      return (
+        <ReadView store={this.props.store} title={this.props.title} text={text}/>
+      );
+    } else {
+      return (
+        <div className='profile'>
+          <p className='hdr-text'>Recommended Reading Material</p><br />
+          <BookList type='rec' store={this.props.store} /><br />
+          <p className='hdr-text'>Your Favorites</p><br />
+          <BookList type='fav' store={this.props.store} /><br />
+          <p className='hdr-text'>Books You've read</p><br />
+          <BookList type='read' store={this.props.store} />
+          <br /><br />
+          <span id='refresh-button' onClick={this.getProfileInfo}>Load Profile</span>
+          <span id='spacer'></span>
+          <span id='refresh-button' onClick={this.requestBooks}>Load Books</span>
+        </div>
+      );
+    }
   }
 }
 
 ProfileView.propTypes = {
   store: PropTypes.object.isRequired,
+  isReading: PropTypes.bool.isRequired,
+  title: PropTypes.string
 };
+
+ProfileView.defaultProps = {
+  isReading: false
+}

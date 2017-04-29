@@ -8,14 +8,10 @@ import Book from './Book.jsx';
 export default class BookList extends React.Component {
 
   render() {
-    console.log('re-rendered booklist ');
-    console.log(this.props.store);
     // Only render the books
     const profile = this.props.store.profile;
     const books = this.props.store.books.books;
-  //  var counter = 0;
     const row = books.map((book, c) => {
-      // counter++;
       // if it's not read, only show in recommendations
       if (!profile.read.includes(book.title)) {
         if (this.props.type === 'rec') {
@@ -25,10 +21,10 @@ export default class BookList extends React.Component {
         }
       // if it's a favorite, show in both favs and read
     } else if (profile.favs.includes(book.title)) {
-        if (this.props.type === 'rec') {
-          return (<span key={c}></span>);
-        } else {
+        if (this.props.type === 'fav') {
           return ((<Book text={book.text} title={book.title} key={c} store={this.props.store} />));
+        } else {
+          return (<span key={c}></span>);
         }
       // if it's read show in read
       } else {

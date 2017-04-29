@@ -46,5 +46,4 @@ LoginButton.propTypes = {
 };
 
 LoginButton.defaultProps = {
-
 };

@@ -37,16 +37,32 @@ const mainReducer = (state, action) => {
     return _.assign({}, state, {profile: action.profile});
   }
 
-  case 'IS_READ': {
+  case 'READ': {
     console.log("Read " + action.title);
-    action.profile.read.push(action.title);
-    return _.assign({}, state, {profile: action.profile});
+    //action.profile.read.push(action.title);
+    return _.assign({}, state, {isReading: true, title: action.title});
   }
 
   case 'CLICK_BOOK': {
     console.log("Clicked Book " + action.title);
     return state;
   }
+
+  case 'GOOD_READ': {
+    console.log(action.profile.vocab);
+    // if good, add to read books and add all words to vocab
+    action.profile.read.push(action.title);
+    // now add all words to vocab
+    Array.prototype.push.apply(action.profile.vocab, action.text.split(" "))
+    return _.assign({}, state, {isReading: false, title: action.title});
+  }
+
+  case 'BAD_READ': {
+    // if bad, return to state before reading
+    return _.assign({}, state, {isReading: false});
+  }
+
+
   default: {
     console.log("Hit default case");
     return state;

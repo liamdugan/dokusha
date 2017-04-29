@@ -3,12 +3,11 @@
 }
 
 .Dokusha-logo {
-  animation: Dokusha-logo-spin infinite 20s linear;
   height: 80px;
 }
 
 .Dokusha-header {
-  background-color: #222;
+  background-color: #604000;
   height: 150px;
   padding: 20px;
   color: white;
@@ -24,9 +23,4 @@
   border-style: solid;
   font-size: large;
   color: black;
-}
-
-@keyframes Dokusha-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

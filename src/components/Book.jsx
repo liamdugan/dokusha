@@ -12,6 +12,7 @@ export default class Book extends React.Component {
     this.favorite = this.favorite.bind(this);
     this.isRead = this.isRead.bind(this);
     this.clickBook = this.clickBook.bind(this);
+    this.calculateReadability = this.calculateReadability.bind(this);
   }
 
   favorite() {
@@ -29,24 +30,39 @@ export default class Book extends React.Component {
     this.props.store.dispatch(actions.clickBook(this.props.title, this.props.text));
   }
 
+  calculateReadability() {
+    // something done on creation of each book component
+    const vocab = this.props.store.profile.vocab;
+    const text = this.props.text.split(" ");
+    var knownWords = 0;
+    for (var i = 0; i < text.length; i++) {
+      if (vocab.includes(text[i])) {
+        knownWords++;
+      }
+    }
+    return (knownWords / text.length) * 100;
+  }
+
   render() {
+    const readability = Math.round(this.calculateReadability());
     const profile = this.props.store.profile;
     const favButton = () => {
       if (!profile.favs.includes(this.props.title) && profile.read.includes(this.props.title)) {
         return (<button className='favButton' onClick={this.favorite}>Favorite!</button>);
       }
     }
-    const isReadButton = () => {
+    const readButton = () => {
       if (!profile.read.includes(this.props.title)) {
-        return (<button className='isReadButton' onClick={this.isRead}>Already Read</button>);
+        return (<button className='isReadButton' onClick={this.isRead}>Read</button>);
       }
     }
     return (
       <span>
       <div className='book'>
         <span className='page' onClick={this.clickBook}>{this.props.title}</span><br />
+        <span className='readability'>Readability: {readability}%</span><br />
         {favButton()}
-        {isReadButton()}
+        {readButton()}
       </div>
       </span>
     )

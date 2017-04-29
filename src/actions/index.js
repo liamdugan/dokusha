@@ -27,7 +27,7 @@ const favorite = (title, profile) => {
 
 const isRead = (title, profile) => {
   return {
-    type: 'IS_READ',
+    type: 'READ',
     title: title,
     profile: profile
   };
@@ -56,4 +56,19 @@ const requestBooks = () => {
   }
 }
 
-export { onLogin, favorite, getProfileInfo, requestBooks, isRead, clickBook }
+const successfulRead = (profile, title, text) => {
+  return {
+    type: 'GOOD_READ',
+    profile: profile,
+    title: title,
+    text: text
+  }
+}
+
+const unsuccessfulRead = () => {
+  return {
+    type: 'BAD_READ'
+  }
+}
+
+export { onLogin, favorite, getProfileInfo, requestBooks, isRead, clickBook, successfulRead, unsuccessfulRead }
