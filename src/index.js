@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import { mainReducer as reducers } from './reducers';
 import * as initialState from './initialState';
 import * as actions from './actions/index';
-import './index.css';
+import './styles/index.css';
 
 ReactDOM.render(
   <Dokusha />,

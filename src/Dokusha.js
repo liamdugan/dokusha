@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './Dokusha.css';
+import './styles/Dokusha.css';
 
 class Dokusha extends Component {
   render() {
