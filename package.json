@@ -3,12 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.14.1",
+    "cookie-session": "^2.0.0-alpha.1",
+    "ejs": "^2.3.4",
+    "eslint": "^2.3.0",
+    "express": "^4.15.2",
     "lodash": "^4.17.4",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.6",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "seeder": "^0.2.1"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"

@@ -33,14 +33,6 @@ const isRead = (title, profile) => {
   };
 };
 
-const clickBook = (title, text) => {
-  return {
-    type: 'CLICK_BOOK',
-    title: title,
-    text: text
-  };
-};
-
 const getProfileInfo = (user) => {
   console.log("Profile Info action");
   return {
@@ -71,4 +63,4 @@ const unsuccessfulRead = () => {
   }
 }
 
-export { onLogin, favorite, getProfileInfo, requestBooks, isRead, clickBook, successfulRead, unsuccessfulRead }
+export { onLogin, favorite, getProfileInfo, requestBooks, isRead, successfulRead, unsuccessfulRead }

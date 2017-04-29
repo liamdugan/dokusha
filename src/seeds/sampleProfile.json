@@ -1,6 +1,20 @@
 {
-  "name": "action.user",
-  "vocab": ["Look", "Ma", "No", "Hands", "Harry", "Potter", "gave", "we", "can", "see"],
-  "favs": [],
-  "read": []
+  "profiles": {
+    "Test": {
+      "_id": "54c1321303069f7ee53adcfb",
+      "username": "Test",
+      "password": "password",
+      "favs": [],
+      "read": ["Cat in the Hat"],
+      "vocab": ["Look", "Ma", "No", "Hands", "Harry", "Potter", "gave", "we", "can", "see"]
+    },
+    "Test": {
+      "_id": "6a4928afd0f20971d82105e4",
+      "username": "John",
+      "password": "Smith",
+      "favs": ["CLRS"],
+      "read": ["Harry Potter", "CLRS"],
+      "vocab": ["I'm", "John", "smith"]
+    }
+  }
 }

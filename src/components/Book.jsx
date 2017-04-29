@@ -25,11 +25,6 @@ export default class Book extends React.Component {
     this.props.store.dispatch(actions.isRead(this.props.title, this.props.store.profile));
   }
 
-  clickBook() {
-    // when the book is clicked send to read
-    this.props.store.dispatch(actions.clickBook(this.props.title, this.props.text));
-  }
-
   calculateReadability() {
     // something done on creation of each book component
     const vocab = this.props.store.profile.vocab;
@@ -59,7 +54,7 @@ export default class Book extends React.Component {
     return (
       <span>
       <div className='book'>
-        <span className='page' onClick={this.clickBook}>{this.props.title}</span><br />
+        <span className='page'>{this.props.title}</span><br />
         <span className='readability'>Readability: {readability}%</span><br />
         {favButton()}
         {readButton()}

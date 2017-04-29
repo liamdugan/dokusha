@@ -29,7 +29,6 @@ export default class ProfileView extends React.Component {
   render() {
     // TODO: Send request to database for user profile JSON object
     // TODO: get user vocab/readbooks & put into store
-
     // create first and second Booklist
     if (this.props.isReading) {
       const books = this.props.store.books.books;
