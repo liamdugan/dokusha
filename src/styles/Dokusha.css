@@ -18,6 +18,14 @@
   font-size: large;
 }
 
+.login-button {
+  background-color: inherit;
+  padding: 10px;
+  border-style: solid;
+  font-size: large;
+  color: black;
+}
+
 @keyframes Dokusha-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

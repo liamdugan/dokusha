@@ -1,9 +1,13 @@
 // Dokusha
 
-const onLogin = () => {
+const onLogin = (username, password) => {
   // possibly get username and password for this?
+  console.log("Username " + username);
+  console.log("Password " + password);
   return {
-    type: 'LOGIN'
+    type: 'LOGIN',
+    username: username,
+    password: password
   };
 };
 
@@ -15,3 +19,5 @@ const favorite = (book) => {
     book: book
   };
 };
+
+export { onLogin, favorite }
