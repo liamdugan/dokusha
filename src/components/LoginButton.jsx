@@ -12,23 +12,39 @@ export default class LoginButton extends React.Component {
   }
 
   onLoginClick() {
+    var username = document.getElementById('username');
+    var password = document.getElementById('password');
+    this.props.store.username = username.value;
+    this.props.store.password = password.value;
+    username.value = ""
+    password.value = "";
     this.props.store.dispatch(
-      actions.onLogin(this.props.username, this.props.password)
+      actions.onLogin(this.props.store.username, this.props.store.password)
     );
   }
 
   render() {
-    return (<span onClick={this.onLoginClick} className='login-button'>Login!</span>);
+    return (
+      <div className='login'>
+      <form className='login'>
+        <span id='user-text'>Username</span>
+        <br></br>
+        <input type='text' id='username'></input>
+        <br></br>
+        <span id='pw-text'>Password</span>
+        <br></br>
+        <input type='password' id='password'></input>
+        <br></br><br></br><br></br>
+      </form>
+      <span onClick={this.onLoginClick} className='login-button'>Login!</span>
+    </div>);
   }
 }
 
 LoginButton.propTypes = {
   store: PropTypes.object.isRequired,
-  username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
 };
 
 LoginButton.defaultProps = {
-  username: "test",
-  password: "password"
+
 };

@@ -4,7 +4,6 @@ import Dokusha from './components/Dokusha.jsx';
 import { createStore } from 'redux';
 import { mainReducer as reducers } from './reducers';
 import * as initialState from './initialState';
-import * as actions from './actions/index';
 import './styles/index.css';
 
 const store = createStore(reducers, initialState);

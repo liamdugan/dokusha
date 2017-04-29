@@ -24,21 +24,35 @@ export default class Dokusha extends React.Component {
   }
 
   render() {
-    return (
-      <div className="Dokusha">
-        <div className="Dokusha-header">
-          <img src={logo} className="Dokusha-logo" alt="logo" />
-          <h2>Welcome to Dokusha</h2>
+    const ifFail = () => {
+      if (this.state.loginFailed) {
+        return (<p className="Dokusha-intro">Login info incorrect</p>);
+      } else {
+        return (<p className="Dokusha-intro">To get started, please log in!</p>);
+      }
+    };
+
+    if (this.state.loginSucceeded) {
+      return (
+        <div className="Dokusha">
+          <div className="Dokusha-header">
+            <img src={logo} className="Dokusha-logo" alt="logo" />
+            <h2>Hello user: {this.props.store.username}!</h2>
+          </div>
+      </div>);
+    } else {
+      return (
+        <div className="Dokusha">
+          <div className="Dokusha-header">
+            <img src={logo} className="Dokusha-logo" alt="logo" />
+            <h2>Welcome to Dokusha</h2>
+          </div>
+          {ifFail()}
+          <LoginButton store={this.props.store}/>
+          <br />
         </div>
-        <p className="Dokusha-intro">
-          To get started, please log in!
-        </p>
-        <br></br>
-        <LoginButton store={this.props.store}
-          username={this.state.username}
-          password={this.state.password}/>
-      </div>
-    );
+      );
+    }
   }
 }
 
