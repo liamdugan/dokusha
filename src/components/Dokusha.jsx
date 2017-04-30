@@ -22,8 +22,8 @@ export default class Dokusha extends React.Component {
 
   render() {
     const startText = "To get started, please sign up or log in!";
-    const loginFailText = "There is no user with that info";
-    const signUpFailText = "This account already exists";
+    const loginFailText = "Login Unsuccessful";
+    const signUpFailText = "Sign Up Unsuccessful: An account already exists with that username";
     // Render start text based on if there has been a login fail attempt yet
     const ifFail = () => {
       if (this.state.loginFailed) {

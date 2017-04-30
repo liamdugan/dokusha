@@ -24,19 +24,21 @@ export default class LoginPage extends React.Component {
         data: data,
         status: r.status
       })).then(res => {
-        if (_.isEmpty(res.data)) {
+        if (_.isEmpty(res.data) || res.data.password !== password.value) {
+          name.value = "";
+          password.value = "";
           this.props.store.dispatch(
             actions.onFailedLogin()
           );
         } else {
+          name.value = "";
+          password.value = "";
           this.props.store.dispatch(
             actions.onSuccessfulLogin(res.data)
           );
         }
       });
     });
-    name.value = "";
-    password.value = "";
   }
 
   // Adds the new user's profile to the database and logs them in
