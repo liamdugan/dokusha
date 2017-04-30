@@ -1,4 +1,5 @@
-// Overarching react component for when a user is reading a book
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// components/ReadView.js - Component that houses the view for reading the text of a book
 
 import React from 'react';
 import PropTypes from 'prop-types';

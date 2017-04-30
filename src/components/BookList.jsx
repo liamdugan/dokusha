@@ -1,4 +1,5 @@
-// Book list
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// components/BookList.js - Component that sorts and renders a list of Book components
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -40,7 +41,7 @@ export default class BookList extends React.Component {
     const row = sortedBooks.map((book, c) => {
       // if it's not read, only show in recommendations
       if (!profile.read.includes(book.title)) {
-        if (this.props.type === 'rec' && unreadBooksShown < 8) {
+        if (this.props.type === 'rec' && unreadBooksShown < 6) {
             unreadBooksShown++;
             return ((<Book text={book.text} title={book.title} key={c} store={this.props.store} />));
         } else {
@@ -48,7 +49,7 @@ export default class BookList extends React.Component {
         }
       // if it's a favorite, show in both favs and read
       } else if (profile.favs.includes(book.title)) {
-        if (this.props.type === 'fav' && favBooksShown < 8) {
+        if (this.props.type === 'fav' && favBooksShown < 6) {
           favBooksShown++;
           return ((<Book text={book.text} title={book.title} key={c} store={this.props.store} />));
         } else {
@@ -56,7 +57,7 @@ export default class BookList extends React.Component {
         }
       // if it's read show in read
       } else {
-        if (this.props.type === 'read' && readBooksShown < 8) {
+        if (this.props.type === 'read' && readBooksShown < 6) {
           readBooksShown++;
           return ((<Book text={book.text} title={book.title} key={c} store={this.props.store} />));
         } else {

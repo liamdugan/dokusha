@@ -1,3 +1,6 @@
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// db/mongo.js - sets up the main mongoose database and outlines the profile and book schema
+
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/dokusha', function (err) {

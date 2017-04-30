@@ -4,14 +4,17 @@ import ProfileView from './ProfileView.jsx';
 import LoginPage from './LoginPage.jsx';
 import logo from '../logo.png';
 import '../styles/Dokusha.css';
-import * as initialState from '../initialState.js';
 import * as actions from '../actions/index.js';
 
 export default class Dokusha extends React.Component {
 
   constructor() {
     super();
-    this.state = initialState;
+    this.state = {
+      loginSucceeded: false,
+      loginFailed: false,
+      signUpFailed: false
+    };
   }
 
   // Listen to changes on the state

@@ -1,3 +1,6 @@
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// db/profiles.js - details functions for mongoose Profile schema
+
 var mongo = require('./mongo');
 var mongoose = require('mongoose');
 

@@ -1,4 +1,5 @@
-// Dokusha actions
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// actions/index.js - Outlines all actions and sends them to the reducer
 
 // update state with new profile data from the login query
 const onSuccessfulLogin = (profile) => {

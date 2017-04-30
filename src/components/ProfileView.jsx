@@ -1,4 +1,5 @@
-// Overarching react component for a user's profile
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// components/ProfileView.js - Component that houses the view for a user profile
 
 import React from 'react';
 import PropTypes from 'prop-types';

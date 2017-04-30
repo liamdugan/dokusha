@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// bin/run-server.js - Starts the express server and seeds the mongo database
+
 // Seed the database, then start the server
 require('../db/seed.js')(function (err) {
   if (err) {

@@ -1,3 +1,6 @@
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// api.js - sets up the api routes for requesting profiles and books
+
 var express = require('express');
 var router = express.Router();
 var profilesDb = require('../db/profiles');

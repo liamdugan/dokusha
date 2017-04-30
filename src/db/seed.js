@@ -1,3 +1,6 @@
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// db/seed.js - seeds database with profiles and books
+
 var seeder = require('seeder');
 var mongo = require('./mongo');
 var seedData = require('./seedData.json');

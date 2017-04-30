@@ -1,4 +1,5 @@
-// Write Book
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// components/BookList.js - Individual Book component with fav and read button
 
 import React from 'react';
 import PropTypes from 'prop-types';

@@ -1,4 +1,5 @@
-// Dokusha main reducers
+// Dokusha - Liam Dugan - CIS197 Final Project - 4/30/2017
+// reducers/index.js - Main reducer for the react events
 
 import _ from 'lodash';
 
@@ -53,7 +54,6 @@ const mainReducer = (state, action) => {
     return _.assign({}, state, {isReading: false});
 
   default:
-    console.log("Hit default case");
     return state;
 
   }

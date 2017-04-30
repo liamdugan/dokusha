@@ -1,6 +1,7 @@
 {
   "name": "dokusha",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "A full stack Javascript web-app to assist language learners",
   "private": true,
   "dependencies": {
     "bcrypt": "^1.0.2",

@@ -5,16 +5,16 @@
       "name": "Test",
       "password": "password",
       "favs": [""],
-      "read": ["Cat in the Hat"],
-      "vocab": ["Look", "Ma", "No", "Hands", "Harry", "Potter", "gave", "we", "can", "see"]
+      "read": [""],
+      "vocab": ["I", "am", "a", "test", "user"]
     },
-    "John": {
+    "Aidan": {
       "_id": "6a4928afd0f20971d82105e4",
       "name": "Aidan",
       "password": "Smith",
-      "favs": ["CLRS"],
-      "read": ["Harry Potter", "CLRS"],
-      "vocab": ["I'm", "John", "smith"]
+      "favs": [""],
+      "read": [""],
+      "vocab": ["I", "can't", "read"]
     }
   },
   "books": {
