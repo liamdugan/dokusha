@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import '../styles/Book.css';
 import * as actions from '../actions/index.js';
 
@@ -16,12 +17,17 @@ export default class Book extends React.Component {
 
   // when the favorite button is clicked send a favorite action
   favorite() {
-    this.props.store.dispatch(actions.favorite(this.props.title, this.props.store.profile));
+    var profile = this.props.store.profile;
+    profile.favs.push(this.props.title);
+    var params = queryString.stringify(profile);
+    fetch('/api/update?' + params).then((r) => {
+      this.props.store.dispatch(actions.favorite(profile));
+    });
   }
 
   // when the is read button is clicked send a read action
   read() {
-    this.props.store.dispatch(actions.read(this.props.title, this.props.store.profile));
+    this.props.store.dispatch(actions.read(this.props.title));
   }
 
   // Calculate the percentage of the vocab in the book that the user knows

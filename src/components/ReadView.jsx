@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import queryString from 'query-string';
 import '../styles/Read.css';
 import * as actions from '../actions/index.js';
 
@@ -15,11 +16,17 @@ export default class ReadView extends React.Component {
 
   completeTrue() {
     // if the user understood the material
-    this.props.store.dispatch(actions.successfulRead(this.props.store.profile, this.props.title, this.props.text));
+    var profile = this.props.store.profile;
+    profile.read.push(this.props.title);
+    Array.prototype.push.apply(profile.vocab, this.props.text.split(" "));
+    var params = queryString.stringify(profile);
+    fetch('/api/update?' + params).then((r) => {
+      this.props.store.dispatch(actions.doneRead());
+    });
   }
 
   completeFalse() {
-    this.props.store.dispatch(actions.unsuccessfulRead());
+    this.props.store.dispatch(actions.doneRead());
   }
 
   render() {

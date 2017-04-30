@@ -15,20 +15,10 @@ const onFailedLogin = (profile) => {
   };
 };
 
-const onSignUp = (username, password) => {
-  // send login query to the database
-  return {
-    type: 'SIGN_UP',
-    username: username,
-    password: password
-  };
-};
-
 // User favorites a book
-const favorite = (title, profile) => {
+const favorite = (profile) => {
   return {
     type: 'FAVORITE',
-    title: title,
     profile: profile
   };
 };
@@ -37,8 +27,7 @@ const favorite = (title, profile) => {
 const read = (title, profile) => {
   return {
     type: 'READ',
-    title: title,
-    profile: profile
+    title: title
   };
 };
 
@@ -57,23 +46,20 @@ const requestBooks = () => {
   }
 }
 
-// User was able to read the book
-const successfulRead = (profile, title, text) => {
+// User is done reading
+const doneRead = (profile, title, text) => {
   return {
     type: 'GOOD_READ',
-    profile: profile,
-    title: title,
-    text: text
   }
 }
 
-// User was not able to read the book
-const unsuccessfulRead = () => {
+// Get user profile
+const onDuplicateSignup = () => {
   return {
-    type: 'BAD_READ'
+    type: 'DUP_SIGNUP'
   }
 }
 
-export { onSuccessfulLogin, onFailedLogin, favorite, getProfileInfo,
-  requestBooks, read, successfulRead,
-  unsuccessfulRead, onSignUp }
+export { onSuccessfulLogin, onDuplicateSignup, onFailedLogin,
+  favorite, getProfileInfo,
+  requestBooks, read, doneRead }

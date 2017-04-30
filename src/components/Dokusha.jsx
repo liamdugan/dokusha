@@ -16,14 +16,7 @@ export default class Dokusha extends React.Component {
 
   // Listen to changes on the state
   componentDidMount() {
-    // this.props.store.subscribe(function () {
-    //   console.log(this.state);
-    //   console.log(this.props.store);
-    //   this.forceUpdate();
-    // }.bind(this));
     this.props.store.subscribe(function () {
-      console.log(this.state);
-      console.log(this.props.store);
       this.setState(this.props.store.getState());
     }.bind(this));
   }
@@ -37,10 +30,13 @@ export default class Dokusha extends React.Component {
   render() {
     const startText = "To get started, please sign up or log in!";
     const loginFailText = "There is no user with that info";
+    const signUpFailText = "This account already exists";
     // Render start text based on if there has been a login fail attempt yet
     const ifFail = () => {
       if (this.state.loginFailed) {
         return (<p className="Dokusha-intro">{loginFailText}</p>);
+      } else if (this.state.signUpFailed) {
+        return (<p className="Dokusha-intro">{signUpFailText}</p>);
       } else {
         return (<p className="Dokusha-intro">{startText}</p>);
       }
@@ -48,7 +44,6 @@ export default class Dokusha extends React.Component {
 
     // if we've just successfully logged in
     // add books & profile to the store & render ProfileView
-    console.log("Have we succeded at logging in? " + this.state.loginSucceeded);
     if (this.state.loginSucceeded) {
       this.props.store.books = this.state.books;
       this.props.store.profile = this.state.profile;

@@ -16,42 +16,55 @@ export default class LoginPage extends React.Component {
 
   // Queries the database to get the user's profile
   onLoginClick() {
-    var username = document.getElementById('username');
+    var name = document.getElementById('username');
     var password = document.getElementById('password');
-    var params = queryString.stringify({name: username.value});
+    var params = queryString.stringify({name: name.value});
     fetch('/api/verify?' + params).then((r) => {
       r.json().then(data => ({
         data: data,
         status: r.status
       })).then(res => {
-        console.log(res.data);
         if (_.isEmpty(res.data)) {
-          console.log("Login Failed");
           this.props.store.dispatch(
             actions.onFailedLogin()
           );
         } else {
-          console.log("We did it!");
           this.props.store.dispatch(
             actions.onSuccessfulLogin(res.data)
           );
         }
       });
     });
-    username.value = "";
+    name.value = "";
     password.value = "";
   }
 
   onSignUpClick() {
-    var username = document.getElementById('username');
+    var name = document.getElementById('username');
     var password = document.getElementById('password');
-    this.props.store.username = username.value;
-    this.props.store.password = password.value;
-    username.value = ""
+    var params = queryString.stringify({name: name.value, password: password.value});
+    fetch('/api/new?' + params).then((r) => {
+      if (r.status !== 409) {
+        r.json().then(data => ({
+          data: data,
+          status: r.status
+        })).then(res => {
+          if (_.isEmpty(res.data)) {
+            this.props.store.dispatch(
+              actions.onFailedLogin()
+            );
+          } else {
+            this.props.store.dispatch(
+              actions.onSuccessfulLogin(res.data)
+            );
+          }
+        });
+      } else {
+        this.props.store.dispatch(actions.onDuplicateSignup());
+      }
+    });
+    name.value = "";
     password.value = "";
-    this.props.store.dispatch(
-      actions.onSignUp(this.props.store.username, this.props.store.password)
-    );
   }
 
   render() {

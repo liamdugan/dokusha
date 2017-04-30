@@ -11,7 +11,6 @@ export default class ProfileView extends React.Component {
 
   constructor() {
     super();
-    //this.onBookClick = this.onBookClick.bind(this);
     this.getProfileInfo = this.getProfileInfo.bind(this);
     this.requestBooks = this.requestBooks.bind(this);
   }

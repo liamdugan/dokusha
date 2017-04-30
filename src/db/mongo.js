@@ -12,7 +12,7 @@ mongoose.connect('mongodb://localhost/dokusha', function (err) {
 
 var db = mongoose.connection;
 
-var profileSchema = new mongoose.Schema({
+var profileSchema = mongoose.Schema({
   _id: { type: String, required: true },
   name: { type: String, required: true },
   password: { type: String, required: true },
@@ -26,5 +26,5 @@ var Profiles = mongoose.model('Profiles', profileSchema);
 module.exports = {
   Profiles: Profiles,
   mongoose: mongoose,
-  db: db.collection('Profiles').createIndex( { "x": 1 }, { unique: true } )
+  db: db.collection('Profiles').createIndex( { "__v": 1 }, { unique: true } )
 };

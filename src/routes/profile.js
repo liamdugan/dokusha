@@ -13,9 +13,7 @@ router.get('/all', function (req, res, next) {
 });
 
 router.get('/verify', function (req, res, next) {
-  var name = req.query.name;
-  console.log(req.query);
-  profilesDb.getProfileByName(name, function (err, profiles) {
+  profilesDb.getProfileByName(req.query.name, function (err, profiles) {
     if (err) {
       res.send(new Promise({}));
     } else {
@@ -24,19 +22,24 @@ router.get('/verify', function (req, res, next) {
   });
 });
 
-router.post('/new', function (req, res, next) {
-  var newProf = {
-    name: req.query.name,
-    password: req.query.password,
-    read: [],
-    favs: [],
-    vocab: []
-  };
-  profilesDb.addProfile(newProf, function (err, profile) {
-    if (!err) {
-      res.send(newProf);
+router.get('/update', function (req, res, next) {
+  profilesDb.updateProfile(req.query, function (err, result) {
+    if (err) {
+      res.status(400);
+      res.send('Error');
     } else {
-      res.send(err);
+      res.send('Updated ' + result.nModified + ' item');
+    }
+  });
+});
+
+router.get('/new', function (req, res, next) {
+  profilesDb.addProfile(req.query.name,
+    req.query.password, function (err, profile) {
+    if (err) {
+      res.status(409).send('Account Already exists');
+    } else {
+      res.send(profile);
     }
   });
 });
