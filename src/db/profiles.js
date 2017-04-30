@@ -9,14 +9,18 @@ module.exports = {
 
   getProfileByName: function (username, callback) {
     mongo.Profiles.findOne({"name": username}).exec(function (error, profiles) {
-      callback(error, profiles);
+      if (profiles == null) {
+        callback(error, {});
+      } else {
+        callback(error, profiles);
+      }
     });
   },
 
   addProfile: function (profileData, callback) {
     var profile = new mongo.Profile(profileData);
     profile.save(function (error) {
-      callback(error);
+      callback(error, profile);
     });
   }
 };

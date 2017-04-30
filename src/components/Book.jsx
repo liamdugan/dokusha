@@ -10,23 +10,22 @@ export default class Book extends React.Component {
   constructor() {
     super();
     this.favorite = this.favorite.bind(this);
-    this.isRead = this.isRead.bind(this);
-    this.clickBook = this.clickBook.bind(this);
+    this.read = this.read.bind(this);
     this.calculateReadability = this.calculateReadability.bind(this);
   }
 
+  // when the favorite button is clicked send a favorite action
   favorite() {
-    // when the favorite button is clicked
     this.props.store.dispatch(actions.favorite(this.props.title, this.props.store.profile));
   }
 
-  isRead() {
-    // when the is read button is clicked
-    this.props.store.dispatch(actions.isRead(this.props.title, this.props.store.profile));
+  // when the is read button is clicked send a read action
+  read() {
+    this.props.store.dispatch(actions.read(this.props.title, this.props.store.profile));
   }
 
+  // Calculate the percentage of the vocab in the book that the user knows
   calculateReadability() {
-    // something done on creation of each book component
     const vocab = this.props.store.profile.vocab;
     const text = this.props.text.split(" ");
     var knownWords = 0;
@@ -38,6 +37,8 @@ export default class Book extends React.Component {
     return (knownWords / text.length) * 100;
   }
 
+  // Render % readability, favButton, and readButton
+  // (depending on if the bood is read, a fav, or unread)
   render() {
     const readability = Math.round(this.calculateReadability());
     const profile = this.props.store.profile;
@@ -48,7 +49,7 @@ export default class Book extends React.Component {
     }
     const readButton = () => {
       if (!profile.read.includes(this.props.title)) {
-        return (<button className='isReadButton' onClick={this.isRead}>Read</button>);
+        return (<button className='readButton' onClick={this.read}>Read</button>);
       }
     }
     return (

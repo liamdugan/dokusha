@@ -1,22 +1,30 @@
 // Dokusha
 
-const onLogin = (username, password) => {
-  // possibly get username and password for this?
-  // TODO: Query a database for this!
-  if (username === 'Test' && password === 'password') {
-    return {
-      type: 'LOGIN',
-      username: username,
-      password: password
-    };
-  } else {
-    return {
-      type: 'LOGIN_ERROR'
-    };
-  }
+const onSuccessfulLogin = (profile) => {
+  // send login query to the database
+  return {
+    type: 'LOGIN',
+    profile: profile
+  };
 };
 
-// pass in the book object they clicked on as a JSON?
+const onFailedLogin = (profile) => {
+  // send login query to the database
+  return {
+    type: 'FAILED_LOGIN'
+  };
+};
+
+const onSignUp = (username, password) => {
+  // send login query to the database
+  return {
+    type: 'SIGN_UP',
+    username: username,
+    password: password
+  };
+};
+
+// User favorites a book
 const favorite = (title, profile) => {
   return {
     type: 'FAVORITE',
@@ -25,7 +33,8 @@ const favorite = (title, profile) => {
   };
 };
 
-const isRead = (title, profile) => {
+// User reads a book
+const read = (title, profile) => {
   return {
     type: 'READ',
     title: title,
@@ -33,21 +42,22 @@ const isRead = (title, profile) => {
   };
 };
 
+// Get user profile
 const getProfileInfo = (user) => {
-  console.log("Profile Info action");
   return {
     type: 'PROFILE_INFO',
     user: user
   }
 }
 
+// Request all of the books from the server
 const requestBooks = () => {
-  console.log("Books action");
   return {
     type: 'REQUEST_BOOKS'
   }
 }
 
+// User was able to read the book
 const successfulRead = (profile, title, text) => {
   return {
     type: 'GOOD_READ',
@@ -57,10 +67,13 @@ const successfulRead = (profile, title, text) => {
   }
 }
 
+// User was not able to read the book
 const unsuccessfulRead = () => {
   return {
     type: 'BAD_READ'
   }
 }
 
-export { onLogin, favorite, getProfileInfo, requestBooks, isRead, successfulRead, unsuccessfulRead }
+export { onSuccessfulLogin, onFailedLogin, favorite, getProfileInfo,
+  requestBooks, read, successfulRead,
+  unsuccessfulRead, onSignUp }

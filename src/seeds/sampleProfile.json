@@ -2,7 +2,7 @@
   "profiles": {
     "Test": {
       "_id": "54c1321303069f7ee53adcfb",
-      "username": "Test",
+      "name": "Test",
       "password": "password",
       "favs": [],
       "read": ["Cat in the Hat"],
@@ -10,7 +10,7 @@
     },
     "Test": {
       "_id": "6a4928afd0f20971d82105e4",
-      "username": "John",
+      "name": "John",
       "password": "Smith",
       "favs": ["CLRS"],
       "read": ["Harry Potter", "CLRS"],

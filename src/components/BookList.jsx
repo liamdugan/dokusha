@@ -7,10 +7,12 @@ import Book from './Book.jsx';
 
 export default class BookList extends React.Component {
 
+  // Render the List of books depending on the type of list
   render() {
-    // Only render the books
     const profile = this.props.store.profile;
     const books = this.props.store.books.books;
+
+    // For all books, render empty span if it doesn't match the criteria
     const row = books.map((book, c) => {
       // if it's not read, only show in recommendations
       if (!profile.read.includes(book.title)) {

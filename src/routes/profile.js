@@ -17,7 +17,7 @@ router.get('/verify', function (req, res, next) {
   console.log(req.query);
   profilesDb.getProfileByName(name, function (err, profiles) {
     if (err) {
-      next(err);
+      res.send(new Promise({}));
     } else {
       res.send(profiles);
     }
@@ -26,17 +26,17 @@ router.get('/verify', function (req, res, next) {
 
 router.post('/new', function (req, res, next) {
   var newProf = {
-    name: req.body.name,
-    password: req.body.password,
+    name: req.query.name,
+    password: req.query.password,
     read: [],
     favs: [],
     vocab: []
   };
-  profilesDb.addProfile(newProf, function (err) {
+  profilesDb.addProfile(newProf, function (err, profile) {
     if (!err) {
-      res.send('Posted review successfully');
+      res.send(newProf);
     } else {
-      next(err);
+      res.send(err);
     }
   });
 });
