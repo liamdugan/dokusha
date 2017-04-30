@@ -14,8 +14,9 @@ export default class ReadView extends React.Component {
     this.completeFalse = this.completeFalse.bind(this);
   }
 
+  // if the user understood the material, add text to vocab,
+  // book to read, and update the database
   completeTrue() {
-    // if the user understood the material
     var profile = this.props.store.profile;
     profile.read.push(this.props.title);
     Array.prototype.push.apply(profile.vocab, this.props.text.split(" "));
@@ -25,6 +26,7 @@ export default class ReadView extends React.Component {
     });
   }
 
+  // if user didn't understand, just return to regular view
   completeFalse() {
     this.props.store.dispatch(actions.doneRead());
   }

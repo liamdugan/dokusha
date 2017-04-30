@@ -1,19 +1,32 @@
-// Dokusha
+// Dokusha actions
 
+// update state with new profile data from the login query
 const onSuccessfulLogin = (profile) => {
-  // send login query to the database
   return {
     type: 'LOGIN',
     profile: profile
   };
 };
 
+// let state know to show fail text
 const onFailedLogin = (profile) => {
-  // send login query to the database
   return {
     type: 'FAILED_LOGIN'
   };
 };
+
+// User attempted to create an account that already exists
+const onDuplicateSignup = () => {
+  return {
+    type: 'DUP_SIGNUP'
+  }
+}
+
+const onLogOut = () => {
+  return {
+    type: 'LOG_OUT'
+  }
+}
 
 // User favorites a book
 const favorite = (profile) => {
@@ -31,35 +44,11 @@ const read = (title, profile) => {
   };
 };
 
-// Get user profile
-const getProfileInfo = (user) => {
-  return {
-    type: 'PROFILE_INFO',
-    user: user
-  }
-}
-
-// Request all of the books from the server
-const requestBooks = () => {
-  return {
-    type: 'REQUEST_BOOKS'
-  }
-}
-
 // User is done reading
 const doneRead = (profile, title, text) => {
   return {
-    type: 'GOOD_READ',
+    type: 'DONE_READ',
   }
 }
 
-// Get user profile
-const onDuplicateSignup = () => {
-  return {
-    type: 'DUP_SIGNUP'
-  }
-}
-
-export { onSuccessfulLogin, onDuplicateSignup, onFailedLogin,
-  favorite, getProfileInfo,
-  requestBooks, read, doneRead }
+export { onSuccessfulLogin, onDuplicateSignup, onFailedLogin, favorite, read, doneRead, onLogOut }

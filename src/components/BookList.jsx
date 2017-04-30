@@ -22,7 +22,7 @@ export default class BookList extends React.Component {
           return (<span key={c}></span>);
         }
       // if it's a favorite, show in both favs and read
-    } else if (profile.favs.includes(book.title)) {
+      } else if (profile.favs.includes(book.title)) {
         if (this.props.type === 'fav') {
           return ((<Book text={book.text} title={book.title} key={c} store={this.props.store} />));
         } else {

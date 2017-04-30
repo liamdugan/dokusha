@@ -15,7 +15,7 @@ export default class Book extends React.Component {
     this.calculateReadability = this.calculateReadability.bind(this);
   }
 
-  // when the favorite button is clicked send a favorite action
+  // when the favorite button, update db & send a favorite action
   favorite() {
     var profile = this.props.store.profile;
     profile.favs.push(this.props.title);
@@ -43,29 +43,32 @@ export default class Book extends React.Component {
     return (knownWords / text.length) * 100;
   }
 
-  // Render % readability, favButton, and readButton
-  // (depending on if the bood is read, a fav, or unread)
+  // Render percent readability, favButton, and readButton
+  // (depending on if the book is read/fav/unread)
   render() {
     const readability = Math.round(this.calculateReadability());
     const profile = this.props.store.profile;
+
     const favButton = () => {
       if (!profile.favs.includes(this.props.title) && profile.read.includes(this.props.title)) {
         return (<button className='favButton' onClick={this.favorite}>Favorite!</button>);
       }
     }
+
     const readButton = () => {
       if (!profile.read.includes(this.props.title)) {
         return (<button className='readButton' onClick={this.read}>Read</button>);
       }
     }
+
     return (
       <span>
-      <div className='book'>
-        <span className='page'>{this.props.title}</span><br />
-        <span className='readability'>Readability: {readability}%</span><br />
-        {favButton()}
-        {readButton()}
-      </div>
+        <div className='book'>
+          <span className='page'>{this.props.title}</span><br />
+          <span className='readability'>Readability: {readability}%</span><br />
+          {favButton()}
+          {readButton()}
+        </div>
       </span>
     )
   }

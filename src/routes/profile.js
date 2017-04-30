@@ -3,11 +3,11 @@ var router = express.Router();
 var profilesDb = require('../db/profiles');
 
 router.get('/all', function (req, res, next) {
-  profilesDb.getAllProfiles(function (err, reviews) {
+  profilesDb.getAllProfiles(function (err, profiles) {
     if (err) {
       next(err);
     } else {
-      res.send(reviews);
+      res.send(profiles);
     }
   });
 });
@@ -25,8 +25,7 @@ router.get('/verify', function (req, res, next) {
 router.get('/update', function (req, res, next) {
   profilesDb.updateProfile(req.query, function (err, result) {
     if (err) {
-      res.status(400);
-      res.send('Error');
+      res.status(400).send('Error');
     } else {
       res.send('Updated ' + result.nModified + ' item');
     }

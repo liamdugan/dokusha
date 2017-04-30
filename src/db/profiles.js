@@ -36,7 +36,6 @@ module.exports = {
       read: ['']
     };
     var profile = new mongo.Profiles(newProf);
-    console.log(profile);
     profile.save(function (error, profiles) {
       callback(error, profile);
     });

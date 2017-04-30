@@ -4,34 +4,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BookList from './BookList.jsx';
 import ReadView from './ReadView.jsx';
-import '../styles/Profile.css';
 import * as actions from '../actions/index.js';
+import '../styles/Profile.css';
 
 export default class ProfileView extends React.Component {
 
   constructor() {
     super();
-    this.getProfileInfo = this.getProfileInfo.bind(this);
-    this.requestBooks = this.requestBooks.bind(this);
+    this.logOut = this.logOut.bind(this);
   }
 
-  getProfileInfo() {
-    // Dispatches database request for user profile JSON object
-    this.props.store.dispatch(actions.getProfileInfo(this.props.store.username));
-  }
-
-  requestBooks() {
-    // Dispatches database request for books
-    this.props.store.dispatch(actions.requestBooks());
+  // if logOut button is pressed, log out
+  logOut() {
+    this.props.store.dispatch(actions.onLogOut(this.props.title));
   }
 
   render() {
-    // TODO: Send request to database for user profile JSON object
-    // TODO: get user vocab/readbooks & put into store
-    // create first and second Booklist
+    // if we're reading, render a ReadView object
     if (this.props.isReading) {
       const books = this.props.store.books.books;
       var text = "";
+      // search for the book we're reading and get its text
       for (var i = 0; i < books.length; i++) {
         if (books[i].title === this.props.title) {
           text = books[i].text;
@@ -40,6 +33,7 @@ export default class ProfileView extends React.Component {
       return (
         <ReadView store={this.props.store} title={this.props.title} text={text}/>
       );
+    // otherwise jsut render three BookLists
     } else {
       return (
         <div className='profile'>
@@ -50,9 +44,7 @@ export default class ProfileView extends React.Component {
           <p className='hdr-text'>Books You've read</p><br />
           <BookList type='read' store={this.props.store} />
           <br /><br />
-          <span id='refresh-button' onClick={this.getProfileInfo}>Load Profile</span>
-          <span id='spacer'></span>
-          <span id='refresh-button' onClick={this.requestBooks}>Load Books</span>
+          <span id='refresh-button' onClick={this.logOut}>Log out</span>
         </div>
       );
     }

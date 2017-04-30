@@ -39,6 +39,8 @@ export default class LoginPage extends React.Component {
     password.value = "";
   }
 
+  // Adds the new user's profile to the database and logs them in
+  // returns status 409 if the user already exists in the database
   onSignUpClick() {
     var name = document.getElementById('username');
     var password = document.getElementById('password');

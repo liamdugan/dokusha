@@ -5,7 +5,6 @@ import LoginPage from './LoginPage.jsx';
 import logo from '../logo.png';
 import '../styles/Dokusha.css';
 import * as initialState from '../initialState.js';
-import * as actions from '../actions/index.js';
 
 export default class Dokusha extends React.Component {
 
@@ -19,12 +18,6 @@ export default class Dokusha extends React.Component {
     this.props.store.subscribe(function () {
       this.setState(this.props.store.getState());
     }.bind(this));
-  }
-
-  // Dispatch a login action, if it succeeds, get the login info & books
-  // and add them to the store
-  onLogin() {
-    this.props.store.dispatch(actions.onLogin());
   }
 
   render() {
