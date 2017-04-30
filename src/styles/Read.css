@@ -1,6 +1,6 @@
 .read-view {
   padding: 10px;
-  height: 1500px;
+  height: 1700px;
   font-size: large;
   color: black;
   background-color: gray;
@@ -12,7 +12,7 @@
 
 .book-text {
   padding: 10px;
-  height: 250px;
+  height: 300px;
   border-style: solid;
 }
 
