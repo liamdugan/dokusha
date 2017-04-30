@@ -1,6 +1,6 @@
 var seeder = require('seeder');
 var mongo = require('./mongo');
-var seedData = require('../seeds/sampleProfile.json');
+var seedData = require('./seedData.json');
 
 var seedDb = function (done) {
   seeder(seedData, mongo.mongoose, function (err) {

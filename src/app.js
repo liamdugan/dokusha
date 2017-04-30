@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 var profile = require('./routes/profile');
 var bodyParser = require('body-parser');
-var seedBooks = require ("./seeds/sampleBook.json");
 
 app.engine('html', require('ejs').__express);
 app.set('view engine', 'html');

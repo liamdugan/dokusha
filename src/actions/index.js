@@ -28,6 +28,13 @@ const onLogOut = () => {
   }
 }
 
+const onBookLoad = (books) => {
+  return {
+    type: 'BOOK_LOAD',
+    books: books
+  }
+}
+
 // User favorites a book
 const favorite = (profile) => {
   return {
@@ -51,4 +58,5 @@ const doneRead = (profile, title, text) => {
   }
 }
 
-export { onSuccessfulLogin, onDuplicateSignup, onFailedLogin, favorite, read, doneRead, onLogOut }
+export { onSuccessfulLogin, onDuplicateSignup, onFailedLogin,
+  favorite, read, doneRead, onLogOut, onBookLoad }

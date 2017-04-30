@@ -1,7 +1,6 @@
 // Dokusha main reducers
 
 import _ from 'lodash';
-import seedBooks from "../seeds/sampleBook.json";
 
 const mainReducer = (state, action) => {
   switch (action.type) {
@@ -18,8 +17,7 @@ const mainReducer = (state, action) => {
       loginSucceeded: true,
       loginFailed: false,
       signUpFailed: false,
-      profile: action.profile,
-      books: seedBooks
+      profile: action.profile
     });
 
   case 'DUP_SIGNUP':
@@ -34,6 +32,14 @@ const mainReducer = (state, action) => {
       loginSucceeded: false,
       loginFailed: false,
       signUpFailed: false
+    });
+
+  case 'BOOK_LOAD':
+    return _.assign({}, state, {
+      loginSucceeded: false,
+      loginFailed: false,
+      signUpFailed: false,
+      books: action.books
     });
 
   case 'FAVORITE':

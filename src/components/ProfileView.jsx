@@ -22,7 +22,7 @@ export default class ProfileView extends React.Component {
   render() {
     // if we're reading, render a ReadView object
     if (this.props.isReading) {
-      const books = this.props.store.books.books;
+      const books = this.props.store.books;
       var text = "";
       // search for the book we're reading and get its text
       for (var i = 0; i < books.length; i++) {

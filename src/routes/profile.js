@@ -1,13 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var profilesDb = require('../db/profiles');
+var booksDb = require('../db/book');
 
 router.get('/all', function (req, res, next) {
-  profilesDb.getAllProfiles(function (err, profiles) {
+  booksDb.getAllBooks(function (err, books) {
     if (err) {
       next(err);
     } else {
-      res.send(profiles);
+      res.send(books);
     }
   });
 });

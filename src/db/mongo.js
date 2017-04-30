@@ -22,10 +22,17 @@ var profileSchema = mongoose.Schema({
   vocab: { type: Array, required: true }
 });
 
+var bookSchema = mongoose.Schema({
+  _id: { type: String, required: true },
+  title: { type: String, required: true },
+  text: { type: String, required: true }
+});
+
 var Profiles = mongoose.model('Profiles', profileSchema);
+var Books = mongoose.model('Books', bookSchema);
 
 module.exports = {
   Profiles: Profiles,
+  Books: Books,
   mongoose: mongoose,
-  db: db.collection('Profiles').createIndex( { "__v": 1 }, { unique: true } )
 };

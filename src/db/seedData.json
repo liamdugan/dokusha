@@ -1,0 +1,52 @@
+{
+  "profiles": {
+    "Test": {
+      "_id": "54c1321303069f7ee53adcfb",
+      "name": "Test",
+      "password": "password",
+      "favs": [""],
+      "read": ["Cat in the Hat"],
+      "vocab": ["Look", "Ma", "No", "Hands", "Harry", "Potter", "gave", "we", "can", "see"]
+    },
+    "John": {
+      "_id": "6a4928afd0f20971d82105e4",
+      "name": "Aidan",
+      "password": "Smith",
+      "favs": ["CLRS"],
+      "read": ["Harry Potter", "CLRS"],
+      "vocab": ["I'm", "John", "smith"]
+    }
+  },
+  "books": {
+    "Cat": {
+      "_id": "43345823304969c878318d12",
+      "title": "Cat in the Hat",
+      "text": "The sun did not shine. It was too wet to play. So we sat in the house all that cold, cold, wet day."
+    },
+    "War": {
+      "_id": "54cd6669d3e0fb1b302e54e5",
+      "title": "War and Peace",
+      "text": "Prussia has always declared that Buonaparte is invincible and that all Europe is powerless before him. . . . And I don't believe a word that Hardenburg says, or Haugwitz either."
+    },
+    "The": {
+      "_id": "53cb6b9b4f4ddef1ad47f943",
+      "title": "The Bible",
+      "text": "And Jesus said unto thee, be holy!.. or something"
+    },
+    "CLRS": {
+      "_id": "5580c79aa11e7310b2985ab1",
+      "title": "CLRS",
+      "text": "Dijkstra's algorithm therefore we can see runs in Θ(|V|log|E|) time"
+    },
+    "Const": {
+      "_id": "55822f34a8394683dd015888",
+      "title": "The Constitution",
+      "text": "We the people in order to preserve a more perfect union, establish justice and ensure domestic tranquility"
+    },
+    "Harry": {
+      "_id": "55a51a6765fb1a473f01ee43",
+      "title": "Harry Potter",
+      "text": "Harry Potter gave Dobby a sock! Dobby is a free elf!"
+    }
+  }
+}

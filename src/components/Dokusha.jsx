@@ -5,6 +5,7 @@ import LoginPage from './LoginPage.jsx';
 import logo from '../logo.png';
 import '../styles/Dokusha.css';
 import * as initialState from '../initialState.js';
+import * as actions from '../actions/index.js';
 
 export default class Dokusha extends React.Component {
 
@@ -18,6 +19,18 @@ export default class Dokusha extends React.Component {
     this.props.store.subscribe(function () {
       this.setState(this.props.store.getState());
     }.bind(this));
+    fetch('/api/all').then((r) => {
+      r.json().then(data => ({
+        data: data,
+        status: r.status
+      })).then(res => {
+        if (r.status !== 200) {
+          console.log(r.status);
+        } else {
+          this.props.store.dispatch(actions.onBookLoad(res.data));
+        }
+      });
+    });
   }
 
   render() {
