@@ -12,7 +12,7 @@ The front end of the site is made entirely in React while the backend is a combi
 
 * Open up a new terminal window, cd into dokusha and run `node ./src/bin/run-server.js` to launch the express API server.
 
-* Finally, in a third terminal window navigate to dokusha and run `npm build` to start the react-scripts server. You should see text that tells you what port the site is being hosted on.
+* Finally, in a third terminal window navigate to dokusha and run `npm start` to start the react-scripts server. You should see text that tells you what port the site is being hosted on.
 * Open up your browser and navigate to the localhost port and you're good to go!
 
 ## How does it work?
